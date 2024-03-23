@@ -1,0 +1,70 @@
+drop database plantify;
+create database IF NOT EXISTS Plantify;
+
+use Plantify;
+
+create table users(
+     emailId varchar(50) PRIMARY KEY,
+     firstName varchar(20),
+     lastName varchar(20),
+     password varchar(40),
+     category varchar(20),
+     address varchar(255)
+);  
+
+CREATE TABLE plantDetails (
+    plantId INT PRIMARY KEY AUTO_INCREMENT,
+    emailId varchar(50),
+    plantName VARCHAR(255),
+    species VARCHAR(255) ,
+    wateringSchedule VARCHAR(255),
+    imagePath VARCHAR(255),
+    foreign key (emailId) references users(emailId) ON UPDATE CASCADE ON DELETE CASCADE
+);
+
+CREATE TABLE products(
+    productId int PRIMARY KEY AUTO_INCREMENT,
+    sellerId varchar(50) ,
+    productName varchar(255),
+    price float(10,2) check (price>0),
+    quantityAvailable int ,
+    description text,
+    category varchar(30),
+    imagePath varchar(255),
+    foreign key (sellerId) references users(emailId)
+);
+
+CREATE TABLE orders(
+    orderId INT PRIMARY KEY AUTO_INCREMENT,
+    buyerId varchar(50),
+    orderDate date,
+    totalAmount float(10,2),
+    foreign key (buyerId) references users(emailId)
+);
+
+CREATE TABLE orderItems(
+    orderId INT,
+    productId int,
+    buyQuantity int,
+    unitPrice float(10,2),
+    foreign key (orderId) references orders(orderId),
+    foreign key (productId) references products(productId)
+);
+CREATE TABLE cart(
+    buyerId varchar(50),
+    productId INT,
+    buyQuantity INT,
+    FOREIGN KEY (buyerId) REFERENCES users(emailId),
+    FOREIGN KEY (productId) REFERENCES products(productId)
+);
+
+CREATE TABLE Posts (
+    postId int  AUTO_INCREMENT,
+    userId varchar(50) ,
+    comment varchar(150) ,
+    postDate varchar(50) ,
+    replyId int(11) ,
+    PRIMARY KEY (postId)
+);
+
+

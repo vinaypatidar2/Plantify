@@ -1,0 +1,62 @@
+body {
+    background-color: rgb(255, 255, 255);
+}
+
+.login {
+    margin-right: 10px;
+}
+
+.card {
+    /* this code will maintain equal size of cards despite of the content inside them*/
+    height: 90%;
+    min-height: 200px;
+    margin: 15px;
+    padding: 0px 0px 10px 10px;
+}
+
+.card-body {
+    /*Content inside card body is arranged in flexbox in column direction*/
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+#addNow {
+    color: black;
+    text-decoration: none;
+    border: 1px solid black;
+    /* background-color: rgb(100, 249, 90); */
+    padding: 7px;
+    border-radius: 5px;
+    max-width: 70px;
+}
+
+img {
+    max-height: 200px;
+    max-width: 300px;
+    border-radius: 5px;
+    text-align: center;
+
+}
+
+#myCard:hover {
+    /*Hover effect in each card*/
+    border: 1px solid #0731ee;
+    box-shadow: 0 0 10px rgba(83, 82, 82, 0.5);
+    transform: translateY(-5px);
+    transition: transform 0.7s ease;
+}
+
+#myCard {
+    position: relative;
+}
+
+#myCard .arrow {
+    transition: margin-left 0.5s ease;
+}
+
+#myCard:hover .arrow {
+    margin-left: 5px;
+}
+

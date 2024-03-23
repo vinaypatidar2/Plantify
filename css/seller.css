@@ -1,0 +1,30 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+
+}
+body{
+    width: 100vw;
+    height: 100%;
+    /* background-image: linear-gradient(to right, #8360c3, #2ebf91); */
+    
+}
+.feedopt{
+    height: 20%;
+}
+.card{
+    width: 40%;
+}
+
+ /* .row{
+    display: flex;
+ } */
+.cardcontainer{
+    border: 2px solid rgb(45, 131, 64);
+    border-radius: 16px;
+    
+  }
+.card2{
+    margin: 10px 15px;
+  }
